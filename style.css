@@ -1,5 +1,3 @@
-/* ===== BASE ===== */
-
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
@@ -9,19 +7,13 @@ body {
 
 h1, p {
   color: #f08080;
-  margin-bottom: 10px;
 }
-
-/* ===== CARRIL ===== */
 
 .carril {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
-  gap: 20px;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
 .flecha {
@@ -31,34 +23,15 @@ h1, p {
   cursor: pointer;
 }
 
-/* ===== CONTENIDO ===== */
-
 .contenido-main {
   width: 100%;
-  min-height: 250px;
-  border-radius: 16px;
   text-align: center;
+  z-index: 50
 }
 
-/* ===== SLIDE 1 ===== */
-
-#contenido {
-  text-align: center;
-}
-
-#contenido img {
-  width: 420px;
+img {
+  width: 300px;
   max-width: 90%;
-  height: auto;
-}
-
-/* ===== SLIDE 2 ===== */
-
-.contenido2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
 .imagenes {
@@ -66,75 +39,46 @@ h1, p {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 20px;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 50
 }
 
 .imagenes video {
   width: 250px;
   max-width: 100%;
-  height: auto;
   border-radius: 12px;
+  z-index: 50
 }
 
-/* ===== FRASES ===== */
-
-#frase {
-  position: fixed;
-  font-size: 22px;
-  font-weight: 600;
-  color: #d62828;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.5s ease;
-}
-
-#frase.mostrar {
-  opacity: 1;
-}
-
-/* ===== CARTA ===== */
-
+/* CARTA */
 .carta {
-  position: relative;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .sobre {
-  position: relative;
   width: 280px;
   height: 180px;
   background: #f08080;
   border-radius: 12px;
+  position: relative;
   cursor: pointer;
-  perspective: 1000px;
-  transition: transform 1s ease;
+  transition: transform 0.8s ease;
 }
 
-/* Se va hacia atrás */
 .sobre.abierta {
-  transform: scale(0.6) translateY(-100px);
+  transform: scale(0.6) translateY(-80px);
 }
 
 .tapa {
   position: absolute;
+  border-radius: 13px;
   inset: 0;
   background: #f4978e;
   clip-path: polygon(0 0, 100% 0, 50% 60%);
   transform-origin: top;
-  transition: transform 0.8s ease, opacity 0.8s ease;
-  border-radius: 8px;
-  z-index: 2;
+  transition: 0.8s;
 }
 
 .sobre.abierta .tapa {
@@ -143,27 +87,23 @@ h1, p {
 }
 
 .hoja {
-  position: fixed; /* CAMBIO IMPORTANTE */
-  font-size: 40px;
-  top: 50%;
-  left: 50%;
-  width: 400%;
-  max-width: 800px;
-  max-height: 80vh;
-  overflow-y: auto;
-
-  background: white;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-
-  transform: translate(-50%, -50%) scale(0);
-  transform-origin: center;
-  transition: transform 0.8s ease, opacity 0.8s ease;
-  opacity: 0;
-  z-index: 50;
-
-  color: #f4978e;
+position: fixed; /* CAMBIO IMPORTANTE */ 
+font-size: 40px; 
+top: 50%; 
+left: 50%; 
+width: 400%; 
+max-width: 800px; 
+max-height: 80vh; 
+overflow-y: auto; 
+background: white; 
+border-radius: 16px; 
+padding: 30px; 
+box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+transform: translate(-50%, -50%) scale(0); 
+transform-origin: center; 
+transition: transform 0.8s ease, opacity 0.8s ease; opacity: 0; 
+z-index: 50; 
+color: #f4978e;
 }
 
 .sobre.abierta .hoja {
@@ -171,49 +111,38 @@ h1, p {
   opacity: 1;
 }
 
-/* ===== RESPONSIVE ===== */
-
-/* Tablet */
-@media (max-width: 768px) {
-
-  h1 {
-    font-size: 22px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  .imagenes video {
-    width: 45%;
-  }
-
-  .hoja {
-    padding: 20px;
-  }
+/* FRASES */
+#frase {
+  position: fixed;
+  font-weight: 600;
+  font-size: 20px;
+  opacity: 0;
+  color: #f08080;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Celular */
-@media (max-width: 480px) {
+#frase.mostrar {
+  opacity: 1;
+}
 
-  h1 {
-    font-size: 20px;
-  }
+/* DECORACIÓN */
+#decoracion {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
 
-  p {
-    font-size: 15px;
-  }
+.particula {
+  position: absolute;
+  animation: flotar 6s linear infinite;
+}
 
-  #contenido img {
-    width: 200px;
-  }
-
-  .imagenes video {
-    width: 100%;
-  }
-
-  .hoja {
-    width: 150%;
-    max-height: 85vh;
-  }
+@keyframes flotar {
+  0% { transform: translateY(100vh); opacity: 0; }
+  10% { opacity: 0.6; }
+  100% { transform: translateY(-10vh); opacity: 0; }
 }

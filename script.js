@@ -1,3 +1,4 @@
+
 // ===== CARRIL =====
 const contenido = document.getElementById("contenido");
 const btnIzq = document.getElementById("izquierda");
@@ -5,44 +6,38 @@ const btnDer = document.getElementById("derecha");
 
 let indice = 0;
 
-// SLIDES (HTML FUNCIONAL)
 const slides = [
-  `
-    <div id="contenido">
-        <div>
-          <img
-            src="https://media.tenor.com/Q953SflEIxUAAAAi/snoopy.gif"
-            alt="GIF romántico"
-          />
-        </div>
-        <h1>Tengo algo que decirte💖</h1>
-        <p>Te amo mucho, mi amor. Eres lo más preciado que tengo en mi vida.✨</p>
-      </div>
-  `,
-  `
-    <div class="contenido2">
-      <h1>Pero antes...📸</h1>
-      <p>Unos pequeños recuerdos</p>
-      <div class="contenedorImagenes">
-        <div class="imagenes">
-          <video aspectRatio="16:9" src="video1.mp4" autoPlay loop muted></video>
-          <video aspectRatio="16:9" src="video2.mp4" autoPlay loop muted></video>
-          <video aspectRatio="16:9" src="video3.mp4" autoPlay loop muted></video>
-          <video aspectRatio="16:9" src="video4.mp4" autoPlay loop muted></video>
-          <video aspectRatio="16:9" src="video5.mp4" autoPlay loop muted></video>
-          <video aspectRatio="16:9" src="video6.mp4" autoPlay loop muted></video>
-        </div>
-      </div>
-      <p>Celebrando cada momento contigo💖</p>
 
-    </div>
-  `,
   `
-    <div class="carta">
-      <div class="sobre" id="sobre">
-          <div class="tapa"></div>
-          <div class="hoja">
-            Mi amor ❤️ cuando empezamos me sentía súper raro 🥺 no sabía nada, simplemente te daba todo mi amor como iba y venía 💞 y no me importaba nada, solo tú y yo 🌍✨ y ya nada más en el mundo.
+  <div>
+    <img src="https://media.tenor.com/Q953SflEIxUAAAAi/snoopy.gif" />
+    <h1>Tengo algo que decirte 💖</h1>
+    <p>Te amo mucho, mi amor. Eres lo más preciado que tengo en mi vida ✨</p>
+  </div>
+  `,
+
+  `
+  <div class="contenido2">
+    <h1>Pero antes... 📸</h1>
+    <p>Unos pequeños recuerdos</p>
+    <div class="imagenes">
+      <video src="video1.mp4" autoplay loop muted></video>
+      <video src="video2.mp4" autoplay loop muted></video>
+      <video src="video3.mp4" autoplay loop muted></video>
+      <video src="video4.mp4" autoplay loop muted></video>
+      <video src="video5.mp4" autoplay loop muted></video>
+      <video src="video6.mp4" autoplay loop muted></video>
+    </div>
+  </div>
+  `,
+
+  `
+  <div class="carta">
+    <div class="sobre" id="sobre">
+      <div class="tapa"></div>
+      <div class="hoja">
+        <p>Mi hermosa ANGELY 💕👑✨</p>
+        <p> Mi amor ❤️ cuando empezamos me sentía súper raro 🥺 no sabía nada, simplemente te daba todo mi amor como iba y venía 💞 y no me importaba nada, solo tú y yo 🌍✨ y ya nada más en el mundo.
 
               Sabes, cuando la cagaba era un estúpido enamorado 😔 que no quería reconocer que te podía perder por su estupidez… así que no sabía cómo reaccionar. Perdón por todo, amor 🙏💔 pero quiero que sepas que gracias a esta nueva oportunidad que me diste 💖 en serio, en serio, en serio… seré un loco enamorado 😍🔥 pero ahora sin estupideces.
 
@@ -64,19 +59,16 @@ const slides = [
 
               Te amo mucho mi amor hermoso ❤️‍🔥 TE AMOOOOOO 💗 Y SIEMPRE TE AMARÉ 🤍 TE AMO MI AMOR 💖 TE AMOOOOOOOOOOO 😍🌹
 
-              Mi hermosa ANGELY 💕👑✨
-          </div>
+              Mi hermosa ANGELY 💕👑✨</p>
       </div>
     </div>
+  </div>
   `
 ];
 
 function render() {
   contenido.innerHTML = slides[indice];
-
-  if (indice === 2) {
-    iniciarCarta();
-  }
+  if (indice === 2) iniciarCarta();
 }
 
 btnIzq.onclick = () => {
@@ -91,45 +83,65 @@ btnDer.onclick = () => {
 
 render();
 
-// ===== CARTA + FRASES =====
+
+// ===== CARTA =====
 function iniciarCarta() {
   const sobre = document.getElementById("sobre");
-  const frase = document.getElementById("frase");
-
   if (!sobre) return;
 
-  const frases = [
-    "Te amo ❤️",
-    "Te quiero 💕",
-    "Eres mi persona favorita",
-    "Gracias por existir",
-    "Siempre contigo"
-  ];
-
-  let abierta = false;
-  let i = 0;
-
   sobre.onclick = () => {
-    if (abierta) return;
-    abierta = true;
-
     sobre.classList.add("abierta");
-
-    setInterval(() => {
-      const x = Math.random() * window.innerWidth;
-      const y = Math.random() * window.innerHeight;
-
-      frase.style.left = x + "px";
-      frase.style.top = y + "px";
-      frase.textContent = frases[i];
-
-      frase.classList.add("mostrar");
-
-      i = (i + 1) % frases.length;
-
-      setTimeout(() => {
-        frase.classList.remove("mostrar");
-      }, 1500);
-    }, 2500);
   };
 }
+
+
+// ===== FRASES SIEMPRE ACTIVAS =====
+const fraseEl = document.getElementById("frase");
+
+const frases = [
+  "Te amo ❤️",
+  "Siempre contigo 💕",
+  "Eres preciosa 🩷",
+  "Eres mi persona favorita 🌸",
+  "Te quiero mucho💖",
+  "Quiero un futuro contigo 💝",
+  "💙Eres mi presente y sé que serás mi futuro🩵",
+  "Eres mi luz diaria💘",
+  "Quisiera tenerte cerca❤️‍🩹"
+];
+
+let indiceFrase = 0;
+
+function mostrarFrase() {
+  fraseEl.classList.remove("mostrar");
+
+  setTimeout(() => {
+    fraseEl.style.top = Math.random() * window.innerHeight + "px";
+    fraseEl.style.left = Math.random() * window.innerWidth + "px";
+    fraseEl.textContent = frases[indiceFrase];
+    indiceFrase = (indiceFrase + 1) % frases.length;
+    fraseEl.classList.add("mostrar");
+  }, 300);
+}
+
+setInterval(mostrarFrase, 2500);
+
+
+// ===== BRILLOS SIEMPRE ACTIVOS =====
+const decoracion = document.getElementById("decoracion");
+const elementos = ["✨", "🌸", "💫", "🌺"];
+
+function crearParticula() {
+  const span = document.createElement("span");
+  span.classList.add("particula");
+  span.textContent = elementos[Math.floor(Math.random() * elementos.length)];
+  span.style.left = Math.random() * 100 + "vw";
+  span.style.animationDuration = 5 + Math.random() * 4 + "s";
+  span.style.fontSize = 14 + Math.random() * 18 + "px";
+
+  decoracion.appendChild(span);
+
+  setTimeout(() => span.remove(), 9000);
+}
+
+setInterval(crearParticula, 800);

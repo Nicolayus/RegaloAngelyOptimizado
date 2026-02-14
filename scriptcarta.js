@@ -16,7 +16,6 @@ function inicializarCarta() {
     "Te amo ❤️",
     "Te quiero 💕",
     "Eres mi persona favorita",
-    "Gracias por existir",
     "Siempre contigo"
   ];
 
@@ -47,4 +46,27 @@ function inicializarCarta() {
       }, 500);
     }, 2500);
   });
+
+  const decoracion = document.getElementById("decoracion");
+
+const elementos = ["✨", "🌸", "💖", "🌷", "💫"];
+
+function crearParticula() {
+  const span = document.createElement("span");
+  span.classList.add("particula");
+  span.textContent = elementos[Math.floor(Math.random() * elementos.length)];
+
+  span.style.left = Math.random() * 100 + "vw";
+  span.style.animationDuration = 4 + Math.random() * 4 + "s";
+  span.style.fontSize = 16 + Math.random() * 20 + "px";
+
+  decoracion.appendChild(span);
+
+  setTimeout(() => {
+    span.remove();
+  }, 8000);
+}
+
+setInterval(crearParticula, 600);
+
 }
